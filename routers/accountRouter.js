@@ -11,7 +11,7 @@ accountRouter.get('/all', expressAsyncHandler(async(req, res) => {
 })
 );
 
-accountRouter.post('/', expressAsyncHandler(async(req, res) => {
+accountRouter.post('/add', expressAsyncHandler(async(req, res) => {
   const account = new Account({
     AccountID: uuidv4(),
     Name: req.body.Name,

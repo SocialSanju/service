@@ -6,8 +6,10 @@ import { v4 as uuidv4 } from 'uuid'
 const accountGroupRouter = express.Router();
 
 accountGroupRouter.get('/list', expressAsyncHandler(async(req, res) => {
-  const details = await AccountGroup.find({});
-  res.send(details);
+  
+    const group = await AccountGroup.find({});
+    res.send(group);
+
 })
 );
 
