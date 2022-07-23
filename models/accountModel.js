@@ -2,9 +2,10 @@ import mongoose from 'mongoose';
 
 const accountSchema = new mongoose.Schema(
 {
+   AccountID: { type: String },
    Name: { type: String, required: true },
    Mobile_No: { type: Number, required: true, unique: true },
-   Account_Group: { type: mongoose.Schema.Types.ObjectID, ref: 'AccountGroup' } 
+   Ac_Group: {type: String, required: true}
 }, 
    {
       timestamps: true,

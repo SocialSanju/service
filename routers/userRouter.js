@@ -1,19 +1,8 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
-import { generateToken } from '../utils.js';
 import User from '../models/userModel.js';
 
 const userRouter = express.Router();
-
-userRouter.get(
-  '/seed',
-  expressAsyncHandler(async (req, res) => {
-     //await User.remove({});
-     console.log('Text');
-    const createdUsers = await User.insertMany(data.users);
-    res.send( createdUsers );
-  })
-);
 
 userRouter.post('/signin', expressAsyncHandler(async(req, res) => {
   const user = await User.findOne({ user_id: req.body.user_id });
@@ -24,7 +13,6 @@ userRouter.post('/signin', expressAsyncHandler(async(req, res) => {
         user_id: user.user_id,
         user_name: user.user_name,
         user_roll: user.user_roll,
-        token: generateToken(user)
       });
       return;
     
@@ -47,7 +35,6 @@ userRouter.post(
       user_name: createdUser.user_name,
       user_id: createdUser.user_id,
       user_roll: createdUser.user_roll,
-      token: generateToken(createdUser),
     });
   })
 );

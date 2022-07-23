@@ -1,24 +1,30 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
-import { generateToken } from '../utils.js';
 import Account from '../models/accountModel.js';
-import AccountGroup from '../models/accountGroupModel.js';
+import { v4 as uuidv4 } from 'uuid'
 
 const accountRouter = express.Router();
 
+accountRouter.get('/all', expressAsyncHandler(async(req, res) => {
+  const sample = await Account.find({});
+  res.send(sample);
+})
+);
+
 accountRouter.post('/', expressAsyncHandler(async(req, res) => {
   const account = new Account({
+    AccountID: uuidv4(),
     Name: req.body.Name,
     Mobile_No: req.body.Mobile_No,
-    Account_Group: req.AccountGroup._id
+    Ac_Group: req.body.Ac_Group
   });
   const createdAccount = await account.save();
   res.send({
-    _id:  createdAccount._id,
+    _id:  createdAccount._id,    
+    AccountID:  createdAccount.AccountID,
     Name:  createdAccount.Name,
     Mobile_No:  createdAccount.Mobile_No,
-    Account_Group:  createdAccount.Account_Group,
-    token: generateToken(createdAccount),
+    Ac_Group: createdAccount.Ac_Group
   });
 })
 );
