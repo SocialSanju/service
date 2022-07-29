@@ -5,6 +5,10 @@ import dotenv from 'dotenv';
 import userRouter from './routers/userRouter.js';
 import accountGroupRouter from './routers/accountGroupRouter.js';
 import accountRouter from './routers/accountRouter.js';
+import serviceRouter from './routers/serviceRouter.js';
+import serviceGroupRouter from './routers/serviceGroupRouter.js';
+import productRouter from './routers/productRouter.js';
+import productGroupRouter from './routers/productGroupRouter.js';
 
 dotenv.config();
 
@@ -27,6 +31,10 @@ mongoose .connect(DATABASEURL, {
 app.use('/api/users', userRouter);
 app.use('/api/account', accountRouter);
 app.use('/api/accountGroup', accountGroupRouter);
+app.use('/api/serviceGroup', serviceGroupRouter);
+app.use('/api/services', serviceRouter);
+app.use('/api/product', productRouter);
+app.use('/api/productGroup', productGroupRouter);
 
 const port = process.env.PORT || 8080;
 
