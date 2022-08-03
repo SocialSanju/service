@@ -4,7 +4,7 @@ const accountSchema = new mongoose.Schema(
 {
    AccountID: { type: String },
    Name: { type: String, required: true },
-   Mobile_No: { type: Number, required: true, unique: true },
+   Mobile_No: { type: Number, required: true },
    Ac_Group: {type: String}
 }, 
    {
