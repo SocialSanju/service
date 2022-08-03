@@ -13,13 +13,11 @@ orderRouter.get('/all', expressAsyncHandler(async(req, res) => {
 orderRouter.post('/add', expressAsyncHandler(async(req, res) => {
   const order = new Order({
     Name: req.body.Name,
-    Mobile_No: req.body.Mobile_No,
   });
   const createdOrder = await order.save();
   res.send({
     _id:  createdOrder._id,    
     Name:  createdOrder.Name,
-    Mobile_No:  createdOrder.Mobile_No,
   });
 })
 );
