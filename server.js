@@ -9,6 +9,7 @@ import serviceRouter from './routers/serviceRouter.js';
 import serviceGroupRouter from './routers/serviceGroupRouter.js';
 import productRouter from './routers/productRouter.js';
 import productGroupRouter from './routers/productGroupRouter.js';
+import orderRouter from './routers/orderRouter.js'
 
 dotenv.config();
 
@@ -35,6 +36,7 @@ app.use('/api/serviceGroup', serviceGroupRouter);
 app.use('/api/services', serviceRouter);
 app.use('/api/product', productRouter);
 app.use('/api/productGroup', productGroupRouter);
+app.use('/api/order', orderRouter);
 
 const port = process.env.PORT || 8080;
 
