@@ -15,7 +15,6 @@ productRouter.post('/add', expressAsyncHandler(async(req, res) => {
   const product = new Product({
     ProductID: uuidv4(),
     Name: req.body.Name,
-    Mobile_No: req.body.Mobile_No,
     ProductGroup: req.body.ProductGroup
   });
   const createdProduct = await product.save();
@@ -23,7 +22,6 @@ productRouter.post('/add', expressAsyncHandler(async(req, res) => {
     _id:  createdProduct._id,    
     ProductID:  createdProduct.ProductID,
     Name:  createdProduct.Name,
-    Mobile_No:  createdProduct.Mobile_No,
     ProductGroup: createdProduct.ProductGroup
   });
 })

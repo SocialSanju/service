@@ -4,7 +4,6 @@ const productSchema = new mongoose.Schema(
 {
    ProductID: { type: String },
    Name: { type: String, required: true },
-   Mobile_No: { type: Number, required: true, unique: true },
    ProductGroup: {type: String}
 }, 
    {
