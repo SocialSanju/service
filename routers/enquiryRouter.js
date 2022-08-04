@@ -1,7 +1,6 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import Enquiry from '../models/enquiryModel.js';
-import datetime from 'datetime';
 
 const enquiryRouter = express.Router();
 
