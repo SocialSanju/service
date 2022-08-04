@@ -11,6 +11,18 @@ accountRouter.get('/all', expressAsyncHandler(async(req, res) => {
 })
 );
 
+accountRouter.get(
+  '/:id',
+  expressAsyncHandler(async (req, res) => {
+    const account = await Account.findById(req.params.id);     
+    if (account) {
+      res.send(account);
+    } else {
+      res.status(404).send({ message: 'Account Not Found' });
+    }
+  })
+);
+
 accountRouter.post('/add', expressAsyncHandler(async(req, res) => {
   const account = new Account({
     AccountID: uuidv4(),

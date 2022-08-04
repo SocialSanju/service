@@ -10,6 +10,18 @@ enquiryRouter.get('/all', expressAsyncHandler(async(req, res) => {
 })
 );
 
+enquiryRouter.get(
+  '/:id',
+  expressAsyncHandler(async (req, res) => {
+    const enquiry = await Enquiry.findById(req.params.id);     
+    if (enquiry) {
+      res.send(enquiry);
+    } else {
+      res.status(404).send({ message: 'Account Not Found' });
+    }
+  })
+);
+
 enquiryRouter.post('/add', expressAsyncHandler(async(req, res) => {
   const enquiry = new Enquiry({
     EnqID: req.body.EnqID,
