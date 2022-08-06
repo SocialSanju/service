@@ -17,7 +17,6 @@ orderRouter.post('/add', expressAsyncHandler(async(req, res) => {
     Name: req.body.Name,
     A: req.body.A,
     B: req.body.B,
-    C: req.body.C,
     Product: req.body.Product,
     BillingAmt: req.body.BillingAmt,
     PaidAmt: req.body.PaidAmt,
@@ -28,13 +27,13 @@ orderRouter.post('/add', expressAsyncHandler(async(req, res) => {
     _id:  createdOrder._id,    
     OrderID:  createdOrder.OrderID,
     Name:  createdOrder.Name,
-    A:  createdOrder.A,
-    B:  createdOrder.B,
-    C:  createdOrder.C,
     Product: createdOrder.Product,
     BillingAmt: createdOrder.BillingAmt,
     PaidAmt: createdOrder.PaidAmt,
-    Remark: createdOrder.Remark
+    Remark: createdOrder.Remark,
+    State:  createdOrder.State,
+    District:  createdOrder.District,
+    Taluka:  createdOrder.Taluka
   });
 })
 );

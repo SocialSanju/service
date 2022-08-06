@@ -11,6 +11,9 @@ import productRouter from './routers/productRouter.js';
 import productGroupRouter from './routers/productGroupRouter.js';
 import enquiryRouter from './routers/enquiryRouter.js';
 import orderRouter from './routers/orderRouter.js';
+import stateRouter from './routers/stateRouter.js';
+import talukaRouter from './routers/talukaRouter.js';
+import districtRouter from './routers/districtRouter.js';
 
 dotenv.config();
 
@@ -39,6 +42,9 @@ app.use('/api/product', productRouter);
 app.use('/api/productGroup', productGroupRouter);
 app.use('/api/enquiry', enquiryRouter);
 app.use('/api/order', orderRouter);
+app.use('/api/state', stateRouter);
+app.use('/api/district', districtRouter);
+app.use('/api/taluka', talukaRouter);
 
 const port = process.env.PORT || 8080;
 
