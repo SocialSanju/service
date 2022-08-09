@@ -4,7 +4,7 @@ const serviceSchema = new mongoose.Schema(
 {
    ServiceID: { type: String },
    Title: { type: String, required: true },
-   Service_Group: {type: String},
+   Service_Group: {type: String , required: true},
 }, 
    {
       timestamps: true,
